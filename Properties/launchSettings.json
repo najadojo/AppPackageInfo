@@ -1,8 +1,7 @@
 {
   "profiles": {
     "AppPackageInfo": {
-      "commandName": "Project",
-      "commandLineArgs": "\"C:\\Users\\jamima\\Downloads\\Santos_0.2020.1020.10_ARM64_Master.msixbundle\""
+      "commandName": "Project"
     }
   }
 }
