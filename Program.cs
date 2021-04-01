@@ -23,14 +23,7 @@ namespace AppPackageInfo
                             return manifestStream.ReadToEnd();
                         }
                     }
-                    else if (entry.Name.EndsWith(".appx", StringComparison.OrdinalIgnoreCase))
-                    {
-                        using (var appxStream = entry.Open())
-                        {
-                            return ReadAppxManifestFromZip(appxStream);
-                        }
-                    }
-                    else if (entry.Name.EndsWith(".msix", StringComparison.OrdinalIgnoreCase))
+                    else if (entry.Name.EndsWith(".appx", StringComparison.OrdinalIgnoreCase) || entry.Name.EndsWith(".msix", StringComparison.OrdinalIgnoreCase))
                     {
                         using (var appxStream = entry.Open())
                         {
