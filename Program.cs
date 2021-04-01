@@ -30,6 +30,13 @@ namespace AppPackageInfo
                             return ReadAppxManifestFromZip(appxStream);
                         }
                     }
+                    else if (entry.Name.EndsWith(".msix", StringComparison.OrdinalIgnoreCase))
+                    {
+                        using (var appxStream = entry.Open())
+                        {
+                            return ReadAppxManifestFromZip(appxStream);
+                        }
+                    }
                 }
             }
 
@@ -41,7 +48,7 @@ namespace AppPackageInfo
         {
             if (args.Length != 1)
             {
-                Console.WriteLine("AppPackageInfo <appxmanifest.xml|package.appxmanifest|<package>.[appx|appxbundle]>");
+                Console.WriteLine("AppPackageInfo <appxmanifest.xml|package.appxmanifest|<package>.[appx|appxbundle]>|<package>.[msix|msixbundle]>");
                 return;
             }
             var filename = args[0];
